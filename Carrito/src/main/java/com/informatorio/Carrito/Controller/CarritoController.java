@@ -38,8 +38,7 @@ public class CarritoController {
 
     @DeleteMapping(value = "/carrito/{id}")
     public ResponseEntity<?> borrarPorId(@PathVariable("id") Long id) {
-
-        return this.carritoService.borrarCarrito(id);
+            return this.carritoService.borrarCarrito(id);
 
     }
 

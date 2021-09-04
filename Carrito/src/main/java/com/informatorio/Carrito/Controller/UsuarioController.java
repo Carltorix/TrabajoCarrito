@@ -47,9 +47,9 @@ public class UsuarioController {
     @GetMapping(value = "/usuario")
     public ResponseEntity<?> getAll(
             @RequestParam(value = "fecha", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaDeCreacion,
-            @RequestParam(name = "cuidad", required = false) String cuidad
+            @RequestParam(value = "ciudad", required = false) String ciudad
     ) {
-        return this.usuarioService.mostrarUsuarios(fechaDeCreacion,cuidad);
+        return this.usuarioService.mostrarUsuarios(fechaDeCreacion,ciudad);
     }
 
     @PutMapping(value = "/usuario/{id}")

@@ -16,12 +16,12 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public ResponseEntity<?> mostrarUsuarios(LocalDate fechaDeCreacion, String ciudadEle){
+    public ResponseEntity<?> mostrarUsuarios(LocalDate fechaDeCreacion, String ciudad){
 
         if (fechaDeCreacion != null){
             return new ResponseEntity(usuarioRepository.findByFechaAltaAfter(fechaDeCreacion), HttpStatus.OK);
-        }else if (ciudadEle != null) {
-            return new ResponseEntity(usuarioRepository.findByCiudad(ciudadEle), HttpStatus.OK);
+        }else if (ciudad != null) {
+            return new ResponseEntity(usuarioRepository.findByCiudadContaining(ciudad), HttpStatus.OK);
         }
         return new ResponseEntity(usuarioRepository.findAll(), HttpStatus.OK);
     }

@@ -31,28 +31,32 @@ public class OrdenService {
         this.ordenRepository = ordenRepository;
     }
 
-    public ResponseEntity<?> crearCargarOrden(IdCarrito idCarrito){
+    public ResponseEntity<?> crearCargarOrden(Long id,IdCarrito idCarrito){
         if (idCarrito != null) {
             try {
                 Carrito carrito = this.carritoRepository.findById(idCarrito.getId()).orElse(null);
                 if (carrito != null) {
                     if (!carrito.getCierre()) {
-                        if(carrito.getLineaDeCarritos().size()>0){
-                            Orden orden = new Orden();
-                            orden.setObservacion(idCarrito.getObservacion());
-                            orden.setUsuario(carrito.getUsuario());
-                            orden.setCarrito(carrito);
-                            for (LineaCarrito lineaCarrito : carrito.getLineaDeCarritos()) {
-                                LineaDetalle lineaDetalle = new LineaDetalle();
-                                lineaDetalle.setCantidad(lineaCarrito.getCantidad());
-                                lineaDetalle.setProducto(lineaCarrito.getProducto());
-                                lineaDetalle.setPrecioUnitario(lineaCarrito.getProducto().getPrecioUnitario());
-                                orden.agregarLineaDetalle(lineaDetalle);
+                        if(carrito.getUsuario().getId() == id) {
+                            if (carrito.getLineaDeCarritos().size() > 0) {
+                                Orden orden = new Orden();
+                                orden.setObservacion(idCarrito.getObservacion());
+                                orden.setUsuario(carrito.getUsuario());
+                                orden.setCarrito(carrito);
+                                for (LineaCarrito lineaCarrito : carrito.getLineaDeCarritos()) {
+                                    LineaDetalle lineaDetalle = new LineaDetalle();
+                                    lineaDetalle.setCantidad(lineaCarrito.getCantidad());
+                                    lineaDetalle.setProducto(lineaCarrito.getProducto());
+                                    lineaDetalle.setPrecioUnitario(lineaCarrito.getProducto().getPrecioUnitario());
+                                    orden.agregarLineaDetalle(lineaDetalle);
+                                }
+                                carrito.setCierre(true);
+                                return ResponseEntity.ok(this.ordenRepository.save(orden));
+                            } else {
+                                return new ResponseEntity<>("Carrito  sin linea", HttpStatus.NOT_FOUND);
                             }
-                            carrito.setCierre(true);
-                            return ResponseEntity.ok(this.ordenRepository.save(orden));
                         }else{
-                            return new ResponseEntity<>("Carrito  sin linea", HttpStatus.NOT_FOUND);
+                            return new ResponseEntity<>("Este Carrito no es tuyo", HttpStatus.NOT_FOUND);
                         }
                     }else{
                         return new ResponseEntity<>("Carrito cerrado", HttpStatus.NOT_FOUND);

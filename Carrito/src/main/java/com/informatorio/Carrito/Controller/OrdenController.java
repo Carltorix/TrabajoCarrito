@@ -65,7 +65,7 @@ public class OrdenController  {
     public ResponseEntity<?> crearOrden(@PathVariable("id") Long id,
                                         @RequestBody IdCarrito idCarrito){
 
-        return this.ordenService.crearCargarOrden(idCarrito);
+        return this.ordenService.crearCargarOrden(id,idCarrito);
     }
 
 }

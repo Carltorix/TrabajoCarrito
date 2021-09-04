@@ -52,6 +52,7 @@ public class CarritoService {
     }
 
     public ResponseEntity<?> agregarProducto(Long id,Long idCarrito,OperacionCarrito operacionCarrito){
+
         try {
             Producto producto = productoRepository.findById(operacionCarrito.getProductoId()).orElse(null);
             if (producto == null) {
@@ -59,8 +60,11 @@ public class CarritoService {
             }
             if (producto.getPublicado()) {
                 Carrito carritoE = carritoRepository.findById(idCarrito).orElse(null);
+                if (carritoE.getUsuario().getId() != id){
+                    return new ResponseEntity<>("EL carrito no le pertenece",HttpStatus.NOT_FOUND);
+                }
                 if (carritoE == null) {
-                    this.crearCar(id, "computadora");
+                    carritoE = this.crearCar(id, "computadora");
                 }
                 LineaCarrito lineaCarrito = new LineaCarrito();
                 if (carritoE.getLineaDeCarritos().size() > 0) {

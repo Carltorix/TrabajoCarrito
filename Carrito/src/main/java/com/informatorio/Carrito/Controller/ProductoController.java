@@ -45,8 +45,10 @@ public class ProductoController {
     @PutMapping(value = "/producto/{id}")
     public ResponseEntity<?> modificarporIdProducto(@PathVariable("id") Long id, @RequestBody Producto producto) {
 
+
+        System.out.println("entro");
         try {
-            return ResponseEntity.ok(this.productoService.modificarProducto(id, producto));
+            return ResponseEntity.ok(this.productoService.modificarProductoId(id, producto));
         }catch(Exception e){
             return new ResponseEntity<>("El producto no existe", HttpStatus.NOT_FOUND);
         }

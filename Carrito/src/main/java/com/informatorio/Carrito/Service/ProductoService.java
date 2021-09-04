@@ -28,7 +28,7 @@ public class ProductoService {
         return productoRepository.findAll();
     }
 
-    public Producto modificarProducto(Long id,Producto producto){
+    public Producto modificarProductoId(Long id,Producto producto){
         ;
         Producto productoE = productoRepository.findById(id).get();
         if(producto.getNombre() != null) {

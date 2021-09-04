@@ -12,8 +12,8 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Query("SELECT us FROM Usuario us where us.ciudad like %?1%")
-    public List<Usuario> findByCiudad(String ciudad);
+    //@Query("SELECT us FROM Usuario us where us.ciudad like %?1%")
+    public List<Usuario> findByCiudadContaining(String ciudad);
 
     //@Query("SELECT us FROM Usuario us where us.fechaAlta > ?1")
     public List<Usuario> findByFechaAltaAfter(LocalDate fecha);
