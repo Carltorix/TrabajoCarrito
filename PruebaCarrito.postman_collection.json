@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "1a1bbdb6-a1e6-4181-8cab-45d2ad3a0e2f",
+		"name": "PruebaCarrito",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Probar Usuario",
+			"item": [
+				{
+					"name": "GetSearchFecha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "GetSearchCity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9999/usuario/7",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"usuario",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutUserId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"direccion\" : \"Av. San Alberdi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9999/usuario/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "InsertUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"nombre\" : \"Carlos\",\r\n    \"apellido\" : \"Carlos\",\r\n    \"direccion\" : \"Av. San Martín\",\r\n}"
+						},
+						"url": {
+							"raw": "localhost:9999/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prueba Producto",
+			"item": [
+				{
+					"name": "InsertProducto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Cocina\",\r\n    \"descripcion\" : \"Calienta Alimentos\",\r\n    \"precioUnitario\" : 30000,\r\n    \"codigoInventario\" : \"110011101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9999/producto",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"producto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModificarProducto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"soplete\",\r\n    \"descripcion\" : \"Calienta Alimentos\",\r\n    \"precioUnitario\" : 10000,\r\n    \"codigoInventario\" : \"1110000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProduct por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/producto/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"producto",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProducto por Estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "GetProducto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProducto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9999/producto/7",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"producto",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prueba Carrito",
+			"item": [
+				{
+					"name": "InsertCarrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"soplete\",\r\n    \"descripcion\" : \"Calienta Alimentos\",\r\n    \"precioUnitario\" : 10000,\r\n    \"codigoInventario\" : \"1110000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9999/usuario/1/carrito",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"usuario",
+								"1",
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCarritoId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCarrito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllEstado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCarrito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "AgregarProducto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cantidad\": \"3\",\r\n    \"productoId\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9999/usuario/1/carrito/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"usuario",
+								"1",
+								"carrito",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BorrarProducto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9999/usuario/1/carrito/1/producto/3",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"usuario",
+								"1",
+								"carrito",
+								"1",
+								"producto",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prueba Orden",
+			"item": [
+				{
+					"name": "CreateOrden",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9999/usuario/1/orden",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"usuario",
+								"1",
+								"orden"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrdenId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllOrdenTrue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOrden",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9999/usuario/1/orden/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"usuario",
+								"1",
+								"orden",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllOrden",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
